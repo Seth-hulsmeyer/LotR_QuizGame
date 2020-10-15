@@ -13,8 +13,9 @@ function displayQuestion(){
     questionText.innerText = questionArray[currentQuestion].question;
     mainEl.append(questionText);
 
-
-// mainEl.appendChild("<img scr='" + questionArray[currentQuestion].imgSource + "'/>");
+    var imgEL = document.createElement("img");
+    imgEL.innerText = questionArray[currentQuestion].imgSource;
+    mainEl.appendChild(imgEL);
 
 for(i = 0; i < questionArray[currentQuestion].choices.length; i++){
     var choicesBtn = document.createElement("button");
@@ -28,7 +29,7 @@ displayQuestion();
 //click handler
 document.querySelector(".btn").addEventListener("click", function(event){
     //go through the object to find the attribute
-    if(event.currentTarget.attribute)
+    if(event.currentTarget.attribute);
     //console log event
 })
 // questionArray[currentQuestion].question;
