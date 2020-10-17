@@ -1,12 +1,26 @@
 // time interval variable 
-// current question index to append next question to 
+var timer = document.querySelector(".time");
+var secondsLeft = 10;
+function setTime() {
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timer.textContent = secondsLeft;
+
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      alert("You're out of time! Please try again.");
+        return;
+    }
+
+  }, 1000);
+}
 
 //global variables including array of question objects
 var currentQuestion = 0;
 var questionArray = [
     //array of objects, each object reps question package (question, answers array, and correct answer string)
     {question: "Who are Durin's Folk?", 
-    imgSource: "./assets/LOTR1", 
+    imgSource: "./assets/LOTR1.jpg", 
     choices: ["Men", "Hobbits", "Dwarves", "Elves"], 
     answer: "Dwarves"},
 
@@ -63,8 +77,8 @@ function displayQuestion(){
     mainEl.append(questionText);
 
     //NEED TO GET IMAGES TO APPEND
-    var imgEL = document.createElement("img");
-    imgEL.innerText = questionArray[currentQuestion].imgSource;
+    var imgEL = document.createElement("img").setAttribute("src", questionArray[currentQuestion].imgSource);
+    // imgEl.setAttribute("src", questionArray[currentQuestion].imgSource);
     mainEl.append(imgEL);
 
     for(i = 0; i < questionArray[currentQuestion].choices.length; i++){
@@ -77,11 +91,19 @@ function displayQuestion(){
 }}
 
 //NEED TO GET QUESTIONS TO CYCLE THROUGH
+setTime();
 displayQuestion();
-//click handler
+//click handler to cycle through questions after any button is clicked
 document.querySelectorAll(".btn").addEventListener("click", function(event){
+    //if clicked choice !== answer subtract seconds from timer, and cycle to next question
+
+    
+    
     //go through the object to find the attribute
-    if(event.currentTarget.attribute);
+    if(event.currentTarget.matches(".btn")){
+        currentQuestion++;
+
+
+    };
     //console log event
 })
-// questionArray[currentQuestion].question;
