@@ -1,10 +1,10 @@
 // time interval variable 
-var timer = document.querySelector(".time");
-var secondsLeft = 10;
+var timer = document.querySelector("time");
+var secondsLeft = 250;
 function setTime() {
   var timerInterval = setInterval(function() {
     secondsLeft--;
-    timer.textContent = secondsLeft;
+    // timer.textContent = secondsLeft;
 
     if(secondsLeft === 0) {
       clearInterval(timerInterval);
@@ -70,39 +70,45 @@ var questionArray = [
     answer: "Anduril"},
 ];
 
-var mainEl = document.getElementById("questionContainer");
+var mainElement = document.getElementById("questionContainer");
 function displayQuestion(){
+    mainElement.innerHTML = "";
     var questionText = document.createElement("h2");
     questionText.innerText = questionArray[currentQuestion].question;
-    mainEl.append(questionText);
+    mainElement.append(questionText);
 
     //NEED TO GET IMAGES TO APPEND
-    var imgEL = document.createElement("img").setAttribute("src", questionArray[currentQuestion].imgSource);
-    mainEl.append(imgEL);
+    var imageEL = document.createElement("img")
+    imageEL.setAttribute("src", questionArray[currentQuestion].imgSource);
+    mainElement.append(imageEL);
+
+    var lineBreak = document.createElement("br")
+    mainElement.append(lineBreak);
 
     for(i = 0; i < questionArray[currentQuestion].choices.length; i++){
         var choicesBtn = document.createElement("button");
         choicesBtn.innerText = questionArray[currentQuestion].choices[i];
         choicesBtn.className = "btn";
-        //need to add data- attribute
         choicesBtn.attributes = questionArray[currentQuestion].answer;
-        mainEl.append(choicesBtn);
+        mainElement.append(choicesBtn);
 }}
 
-//NEED TO GET QUESTIONS TO CYCLE THROUGH
+// //NEED TO GET QUESTIONS TO CYCLE THROUGH
 setTime();
 displayQuestion();
 //click handler to cycle through questions after any button is clicked
-document.querySelectorAll(".btn").addEventListener("click", function(event){
+document.getElementById("questionContainer").addEventListener("click", function(event){
+  event.preventDefault();
     //if clicked choice !== answer subtract seconds from timer, and cycle to next question
-
-    
-    
-    //go through the object to find the attribute
-    if(event.currentTarget.matches(".btn")){
-        currentQuestion++;
-
-
+    if(event.target.matches("button")){
+    currentQuestion++;
+    displayQuestion();
     };
+    //go through the object to find the attribute
+  
+      
+
+
+  
     //console log event
 })
