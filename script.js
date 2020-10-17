@@ -1,18 +1,20 @@
 // time interval variable 
 // current question index to append next question to 
+
+//global variables including array of question objects
 var currentQuestion = 0;
 var questionArray = [
     //array of objects, each object reps question package (question, answers array, and correct answer string)
-    {question: "what color is the sky?", imgSource: "./images/LOTR1", choices: ["green", "red", "blue", "white"], answer: "blue"},
-    {question: "Q2", imgSource: ".images/LOTR2", choices: ["1", "2", "3", "4"], answer: "1"},
-    {question: "Q3", imgSource: ".images/LOTR3", choices: ["5", "6", "7", "8"], answer: "5"},
-    {question: "Q4", imgSource: ".images/LOTR4", choices: ["4", "3", "2", "1"], answer: "1"},
-    {question: "Q5", imgSource: ".images/LOTR5", choices: ["8", "7", "6", "5"], answer: "5"},
-    {question: "Q6", imgSource: ".images/LOTR6", choices: ["2", "3", "4", "1"], answer: "2"},
-    {question: "Q7", imgSource: ".images/LOTR7", choices: ["6", "7", "8", "5"], answer: "7"},
-    {question: "Q8", imgSource: ".images/LOTR8", choices: ["3", "4", "1", "2"], answer: "4"},
-    {question: "Q9", imgSource: ".images/LOTR9", choices: ["7", "8", "5", "6"], answer: "8"},
-    {question: "Q10", imgSource: ".images/LOTR10", choices: ["4", "8", "6", "2"], answer: "6"},
+    {question: "Who are Durin's Folk?", imgSource: "./assets/LOTR1", choices: ["Men", "Hobbits", "Dwarves", "Elves"], answer: "Dwarves"},
+    {question: "What kind of creatures are the spawn of Ungoliant?", imgSource: ".assets/LOTR2", choices: ["Hill Giants", "Giant Spiders", "Uruk-hai", "Balrogs"], answer: "Giant Spiders"},
+    {question: "What do the Elves call the Hobbits?", imgSource: ".assets/LOTR3", choices: ["The Periannath", "The Mellon", "The Uruloki", "The Onodrim"], answer: "The Periannath"},
+    {question: "What are the Palantiri, and how many are there?", imgSource: ".assets/LOTR4", choices: ["Seven Warning-Beacons", "Nine Rings of Power given to Men", "Three Jewels created by Feanor", "Seven Seeing-Stones"], answer: "Seven Seeing-stones"},
+    {question: "Which character said 'Nine companions. So be it. You shall be the fellowship of the ring.'?", imgSource: ".assets/LOTR5", choices: ["Gandalf", "Arwen", "Elrond", "Tom Bombadil"], answer: "Elrond"},
+    {question: "After Sauron, who geld the One Ring?", imgSource: ".assets/LOTR6", choices: ["It fell into a river and was lost", "Isildur", "Elrond", "Gollum"], answer: "Isildur"},
+    {question: "What Sindarin word was Aragorn known by as a child?", imgSource: ".assets/LOTR7", choices: ["Estel (hope or trust)", "Amdir (lost king)", "Aeluin (blue lake)", "Miriel (sparkling like jewels"], answer: "Estel (hope or trust)"},
+    {question: "Where is Legolas from?", imgSource: ".assets/LOTR8", choices: ["Lothlorian", "Rivendell", "Mirkwood", "Fangorn Forest"], answer: "Lothlorian"},
+    {question: "On Weathertop, with what type of blade was Frodo stabbed?", imgSource: ".assets/LOTR9", choices: ["Mithril", "Melkor", "Morgul", "Mithrandir"], answer: "Morgul"},
+    {question: "What is the name of the sword held in this picture?", imgSource: ".assets/LOTR10", choices: ["Sting", "Narsil", "Glamdring", "Anduril"], answer: "Anduril"},
 ];
 
 var mainEl = document.getElementById("questionContainer");
