@@ -1,0 +1,16 @@
+img {
+  height: 300px;
+  width: 500px;
+}
+
+body {
+  background-image: url(https://wallpapercave.com/wp/PDp7fHH.jpg);
+}
+
+main {
+  margin: auto;
+  height: 400px;
+  width: 700px;
+  text-align: center;
+  background-color: rgba(240, 255, 255, 0.473);
+}
