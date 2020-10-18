@@ -90,7 +90,7 @@ var questionArray = [
     question: "Where is Legolas from?",
     imgSource: "./assets/LOTR8.jpg",
     choices: ["Lothlorian", "Rivendell", "Mirkwood", "Fangorn Forest"],
-    answer: "Lothlorian"
+    answer: "Mirkwood"
   },
 
   {
