@@ -72,6 +72,7 @@ main {
 #scoreBoard {
   float: right;
   margin-top: -150px;
+  font-weight: bold;
   height: 200px;
   width: 300px;
   color: rgb(1, 54, 1);
@@ -89,6 +90,7 @@ main {
   text-align: center;
   margin: auto;
 }
+
 button {
   color: rgb(6, 61, 6);
   font-weight: bold;

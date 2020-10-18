@@ -18,7 +18,7 @@ start.addEventListener("click", function () {
 
 // time interval variable 
 var timer = document.getElementById("time");
-var secondsLeft = 30;
+var secondsLeft = 30; //user's score
 function setTime() {
   var timerInterval = setInterval(function () {
     timer.textContent = "Timer: " + secondsLeft;
@@ -173,18 +173,12 @@ function endScreen() {
 
     //saving user initials to local storage ans displays it on the scoreboard 
     saveIntls.addEventListener("click", function () {
-    var currentUser = { name: userInitials.value.trim() };
-    localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+    var currentUser = userInitials.value.trim();
+    localStorage.setItem("currentUser", (currentUser));
+
     var prevUser = localStorage.getItem("currentUser");
-      console.log(prevUser + " - " + score);
-
-
-      scoreList.append(prevUser + " - " + secondsLeft);
+    scoreList.append(prevUser + " - " + secondsLeft);
     });
   };
 }
-
-
-
-
-
