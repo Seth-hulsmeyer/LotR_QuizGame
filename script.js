@@ -1,9 +1,11 @@
-// Starter page
+// Starter page showing only
 document.getElementById("questionContainer").style.visibility = 'hidden';
 document.getElementById("endPage").style.visibility = 'hidden';
+document.getElementById("scoreBoard").style.visibility = 'hidden';
 document.getElementById("time").style.visibility = 'hidden';
 var start = document.getElementById("startBtn");
 
+//event handler to start the game once the start button is clicked
 start.addEventListener("click", function () {
   document.getElementById("startPage").style.visibility = 'hidden';
   startPage.innerHTML = "";
@@ -31,7 +33,7 @@ function setTime() {
   }, 1000);
 }
 
-//global variables including array of question objects
+//global variables including array of question objects, an index for currentQuestion, the user's initials, and the question container
 var currentQuestion = 0;
 var questionArray = [
   //array of objects, each object reps question package (question, answers array, and correct answer string)
@@ -105,9 +107,12 @@ var questionArray = [
     answer: "Anduril"
   },
 ];
+var mainElement = document.getElementById("questionContainer");
+var userInitials = document.getElementById("initials");
+var scoreList = document.getElementById("scores");
+var saveIntls = document.getElementById("initialsBtn");
 
 //function to display questions,images, and answers
-var mainElement = document.getElementById("questionContainer");
 function displayQuestion() {
   mainElement.innerHTML = "";
   var questionText = document.createElement("h2");
@@ -125,12 +130,9 @@ function displayQuestion() {
   for (i = 0; i < questionArray[currentQuestion].choices.length; i++) {
     var choicesBtn = document.createElement("button");
     choicesBtn.innerText = questionArray[currentQuestion].choices[i];
-    // choicesBtn.className = "btn";
     choicesBtn.attributes = questionArray[currentQuestion].answer;
     mainElement.append(choicesBtn);
   }
-
-
 }
 
 //if the player gets the answer right, they get more time and a better score, the opposite is true if they get it wrong
@@ -152,10 +154,6 @@ document.getElementById("questionContainer").addEventListener("click", function 
     currentQuestion++;
     displayQuestion();
   };
-
-  //go through the object to find the attribute
-
-  //console log event
 })
 
 //end screen function to display players score and option to save their score
@@ -163,13 +161,30 @@ function endScreen() {
   if (secondsLeft <= 0) {
     //if player runs out of time, have them try again
     alert("You ran out of time! Try again.")
-    return displayQuestion(0);
+    location.reload();
   } else {
     //hide all other page sections and make the end screen visible
     document.getElementById("time").style.visibility = 'hidden';
     document.getElementById("questionContainer").style.visibility = 'hidden';
     document.getElementById("endPage").style.visibility = 'visible';
+    document.getElementById("scoreBoard").style.visibility = 'visible';
     var score = document.getElementById("scoreDisplay");
     score.append("Your score is : " + secondsLeft);
-  }
+
+    //saving user initials to local storage ans displays it on the scoreboard 
+    saveIntls.addEventListener("click", function () {
+    var currentUser = { name: userInitials.value.trim() };
+    localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    var prevUser = localStorage.getItem("currentUser");
+      console.log(prevUser + " - " + score);
+
+
+      scoreList.append(prevUser + " - " + secondsLeft);
+    });
+  };
 }
+
+
+
+
+
