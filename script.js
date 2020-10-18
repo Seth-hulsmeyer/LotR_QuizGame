@@ -73,7 +73,7 @@ var questionArray = [
   },
 
   {
-    question: "After Sauron, who geld the One Ring?",
+    question: "After Sauron, who held the One Ring?",
     imgSource: "./assets/LOTR6.jpg",
     choices: ["It fell into a river and was lost", "Isildur", "Elrond", "Gollum"],
     answer: "Isildur"
